@@ -2,13 +2,12 @@
 '''
 IDEA: 
   
-  Pick pivot (partition function returns this pivot element) and arrange elements based on this pivot. 
-  For example, put elements less than pivot to be on the left side and elements greater than pivot to be on the right side. 
+  Find the partition element (this element will be first sorted)
+  Call quicksort to sort the left side of the arr, excluding the partition element 
+  Call quicksort to sort the right side of the arr, excluding the partition element 
   
-  Then, call quicksort on the array up to pivot-1 index. 
-  
-  Call quicksort on the 
-  
+  each recursive call places the pivot element, defined in the partition function, to be in the correct position in the sort
+
   partition example 
   
   [2, 5, 7, 3, 4] 
@@ -20,7 +19,6 @@ IDEA:
   
   return index 2
 
-  
 '''
   
 def partition(arr, left, right): 
