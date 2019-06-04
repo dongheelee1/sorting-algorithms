@@ -19,6 +19,8 @@ IDEA:
   
   return index 2
 
+Best Case: O(nlogn) 
+Worst Case: O(n^2)
 '''
   
 def partition(arr, left, right): 
