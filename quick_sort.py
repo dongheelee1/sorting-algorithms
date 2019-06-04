@@ -44,11 +44,22 @@ def partition(arr, left, right):
   
   return i+1 #return the new pivot index 
 
-def quicksort(arr, left, right): 
+def quicksort(arr, left, right):
+  
   if left < right: 
-    partition_idx = partition(arr, left, right)
-    quicksort(arr, left, partition_idx-1)
-    quicksort(arr, partition_idx+1)
+    #at each level of the recursive call, partition function puts elements greater than pivot on the right side of arr
+    #and elements smaller than pivot on the left side of the arr
+    #the pivot element in the partition function, here, is the last element of given arr or element at "right"
+    #near the end of the partition function, swap elements one of which being this pivot element so that right 
+    #and left sides are clearly divided
+    #return the new index where pivot is placed
+    partition_idx = partition(arr, left, right) #new pivot idx...this pivot is the first thing that's sorted
+    quicksort(arr, left, partition_idx-1) #then call quicksort on the left portion of the arr, excluding the partition idx
+    quicksort(arr, partition_idx+1) #call quicksort on the right portion of the arr, excluding the partition idx 
+    
+#quicksort will sort the given arr in place by first putting element chosen as pivot to be in the correct place in arr
+#quicksort will be called again and again on the left and right portions excluding the partition element as they are jumbled but 
+#are on the correct side of the partition element
     
         
   
